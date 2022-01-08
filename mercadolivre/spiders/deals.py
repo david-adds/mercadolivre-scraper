@@ -11,7 +11,6 @@ class DealsSpider(scrapy.Spider):
         }) 
             
     def parse(self, response):   
-        # date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")     
         deals = response.xpath("//div[@class='promotions_boxed-width']/div/ol/li")
         for deal in deals:
             original_price = ' '.join(deal.xpath(".//a/div/div/span[@class='promotion-item__oldprice']//text()").re(r'[\d.,]+')).replace('.','',1).replace(' ','.')
@@ -24,3 +23,10 @@ class DealsSpider(scrapy.Spider):
                 'product_url': deal.xpath(".//a/@href").get(), 
                 'extraction-date': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 }
+            
+        next_page = response.xpath(
+            "//li[@class='andes-pagination__button andes-pagination__button--next']/a/@href").get()
+        if next_page:
+            yield scrapy.Request(url=next_page, callback=self.parse,headers={
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36'
+            })
