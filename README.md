@@ -65,7 +65,7 @@ Linux/macOS</li>
 
 <pre><code>$ git clone https://github.com/david-adds/mercadolivre-scraper.git
 </code></pre>
-<p>From terminal, once you have cloned the repository, open it up so you can run the scraper.</p>
+<p>Once you have cloned the repository, open it up so you can run the scraper.</p>
 <pre><code>$ cd mercadolivre-scraper
 </code></pre>
 <p>Then, run the spider to scrape the data:</p>
