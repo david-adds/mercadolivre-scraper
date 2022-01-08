@@ -32,7 +32,7 @@
 <li>Installed the latest stable python version (Python 3.7 or later).</li>
 <li>Created a virtual enviroment to run the ScraPy framework on your machine.</li>
 <li>Installed Scrapy 1.6 or a later stable version.</li>
-<li>Preferably installed Visual Studio Code or some other code editor/IDE on your computer that runs Python.</li>
+
 <h4> Note: It is strongly recommended that you install Scrapy in a dedicated virtualenv, to avoid conflicting with your system packages.</h4>
 </ul>
 <h2>Getting Started</h2>
@@ -54,19 +54,17 @@ Linux/macOS</li>
 <pre><code>$ source venv/bin/activate
 </code></pre>
 <ol start="3">
-<li>Install the Scrapy framework:<br />
-Linux/macOS</li>
+<li>Install the Scrapy framework:</li>
 </ol>
 <pre><code>$ pip install Scrapy
 </code></pre>
 
-<ol start="4">
-<li>Clone this repository into your workspace:</li>
-</ol>
-
-<pre><code>$ git clone https://github.com/david-adds/mercadolivre-scraper.
-</code></pre>
 <h2>🚀 How to Use:</h2>
+
+<p>Clone this repository into your workspace:</p>
+
+<pre><code>$ git clone https://github.com/david-adds/mercadolivre-scraper.git
+</code></pre>
 <p>From terminal, once you have cloned the repository, open it up so you can run the scraper.</p>
 <pre><code>$ cd mercadolivre-scraper
 </code></pre>
