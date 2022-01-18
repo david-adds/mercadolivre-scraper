@@ -6,7 +6,8 @@
 <img src="https://img.shields.io/badge/python-scrapy-green" alt="Bitbucket open pull requests" />
 <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/david-adds/mercadolivre-scraper?style=plastic">
 <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/david-adds/mercadolivre-scraper?style=plastic">
-<img alt="GitHub watchers" src="https://img.shields.io/github/watchers/david-adds/mercadolivre-scraper?style=social">
+<img alt="GitHub forks" src="https://img.shields.io/github/forks/david-adds/mercadolivre-scraper?style=social">
+<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/david-adds/mercadolivre-scraper?style=social">
 </p>
 
 
@@ -35,14 +36,15 @@
 
 <h4> Note: It is strongly recommended that you install Scrapy in a dedicated virtualenv, to avoid conflicting with your system packages.</h4>
 </ul>
-<h2>Getting Started</h2>
+<h2> Getting Started</h2>
 <p><strong>From terminal</strong></p>
 
 <ol>
 <li>Create an Enviroment:</li>
 </ol>
 
-<pre><code>mkdir virtual-enviroments
+<pre><code>
+$ mkdir virtual-enviroments
 $ cd virtual-enviroments
 $ python3 -m venv venv
 </code></pre>
@@ -76,3 +78,4 @@ Linux/macOS</li>
 	<a href="#" id="up">UP</a>
 </div>
 
+$
