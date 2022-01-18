@@ -22,7 +22,7 @@ class DealsSpider(scrapy.Spider):
             loader.add_xpath("original_price", ".//a/div/div/span[@class='promotion-item__oldprice']//text()")
             loader.add_xpath("current_price", ".//a/div/div/div[2]/span[@class='promotion-item__price']//text()")
             loader.add_xpath("product_url", ".//a/@href")
-            loader._add_value("extraction_date", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            loader.add_value("extraction_date", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             yield loader.load_item()
                 
         next_page = response.xpath(
