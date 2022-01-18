@@ -1,5 +1,7 @@
-import scrapy
+import scrapy 
 from datetime import datetime
+from ..items import MerclivreItem
+from scrapy.loader import ItemLoader
 
 class DealsSpider(scrapy.Spider):
     name = 'deals'
@@ -12,18 +14,17 @@ class DealsSpider(scrapy.Spider):
             
     def parse(self, response):   
         deals = response.xpath("//div[@class='promotions_boxed-width']/div/ol/li")
+        
         for deal in deals:
-            original_price = ' '.join(deal.xpath(".//a/div/div/span[@class='promotion-item__oldprice']//text()").re(r'[\d.,]+')).replace('.','',1).replace(' ','.')
-            current_price = ' '.join(deal.xpath(".//a/div/div/div[2]/span[@class='promotion-item__price']//text()").re(r'[\d.,]+')).replace('.','',1).replace(' ','.')
-                            
-            yield{
-                'product_name': deal.xpath(".//a/div/div/p/text()").get(),
-                'original_price': original_price,
-                'current_price': current_price, 
-                'product_url': deal.xpath(".//a/@href").get(), 
-                'extraction-date': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                }
-            
+            loader = ItemLoader(item=MerclivreItem(),selector=deal, response=response)   
+             
+            loader.add_xpath("product_name", ".//a/div/div/p/text()")
+            loader.add_xpath("original_price", ".//a/div/div/span[@class='promotion-item__oldprice']//text()")
+            loader.add_xpath("current_price", ".//a/div/div/div[2]/span[@class='promotion-item__price']//text()")
+            loader.add_xpath("product_url", ".//a/@href")
+            loader._add_value("extraction_date", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            yield loader.load_item()
+                
         next_page = response.xpath(
             "//li[@class='andes-pagination__button andes-pagination__button--next']/a/@href").get()
         if next_page:
