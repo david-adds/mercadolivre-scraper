@@ -77,5 +77,3 @@ Linux/macOS</li>
 <div id="voltarTopo">
 	<a href="#" id="up">UP</a>
 </div>
-
-$
